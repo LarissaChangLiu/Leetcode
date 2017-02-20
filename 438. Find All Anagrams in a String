@@ -19,6 +19,9 @@ public class Solution {
             if (count == 0){
                 list.add(left);
             }
+            //rigth - left 确保了substring里不会有其它的char
+            //没有出现在p里面的character在map中对应的值应该是-1
+            //如果在p中出现过的character在s中至少出现1次所以
             if (right - left  == p.length() && map[s.charAt(left++)]++ >= 0){
                 count++;
             }
