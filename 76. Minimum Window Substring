@@ -10,6 +10,8 @@ public String minWindow(String s, String t) {
     int d = Integer.MAX_VALUE;
     int head = 0;
     while(end < s.length()){
+        //如果在s中发现在t中出现的character要那么应该是大于0的
+        //比较操作完成以后要--
         if (map[(int)s.charAt(end++)]-- > 0){
             counter--;
         }
