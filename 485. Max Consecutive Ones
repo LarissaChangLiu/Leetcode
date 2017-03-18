@@ -1,0 +1,12 @@
+public class Solution {
+    public int findMaxConsecutiveOnes(int[] nums) {
+        int maxHere = 0;
+        int max = 0;
+        for (int n : nums){
+            //每次遇到0的时候，要清算一次
+            //利用maxHere标记一下so far走了多少
+            max = Math.max(max, maxHere = n == 0 ? 0 : maxHere + 1);
+        }
+        return max;
+    }
+}
