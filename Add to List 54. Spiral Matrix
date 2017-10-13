@@ -1,0 +1,23 @@
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> spiralOrdering = new ArrayList<>();
+        final int[][] SHIFT = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+        int dir = 0;
+        int x = 0;
+        int y = 0;
+        for (int i = 0; i < matrix.length * matrix.length; ++i) {
+            spiralOrdering.add(matrix[x][y]);
+            matrix[x][y] = 0;
+            int nextX = x + SHIFT[dir][0];
+            int nextY = y + SHIFT[dir][1];
+            if (nextX < 0 || nextX >= matrix.length || nextY < 0 || nextY >= matrix[0].length || matrix[nextX][nextY] == 0){
+                dir = (dir + 1) % 4;
+                nextX = x + SHIFT[dir][0];
+                nextY = y + SHIFT[dir][1];
+            }
+            x = nextX;
+            y = nextY;
+        }
+        return spiralOrdering;
+    }
+}
